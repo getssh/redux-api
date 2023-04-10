@@ -27,6 +27,7 @@ const Home = (props) => {
             })
           }
         </ul>
+        <button>Add user</button>
       </div>
     </div>
   );
