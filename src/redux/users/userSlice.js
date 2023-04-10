@@ -6,6 +6,7 @@ const usersSlice = createSlice({
     users: [],
     isLoading: false,
     error: null,
+    active: false,
   },
   extraReducers: {
 
