@@ -1,12 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const usersSlice = createSlice({
-  name: 'name',
+  name: 'users',
   initialState: {
     users: [],
     isLoading: false,
     error: null,
-    active: false,
   },
   extraReducers: {
 

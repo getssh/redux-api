@@ -10,7 +10,11 @@ const Home = (props) => {
         isLoading &&
         <h2>Loading...</h2>
       }
-      
+      {
+        error &&
+        <h2>Error</h2>
+      }
+
     </div>
   );
 }
