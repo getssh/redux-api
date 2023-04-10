@@ -15,6 +15,19 @@ const Home = (props) => {
         <h2>Error</h2>
       }
 
+      <div>
+        <ul>
+          {
+            users.map((user, index) => {
+              return (
+                <li>
+                  {user.firstName} {user.lastName}
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
     </div>
   );
 }
