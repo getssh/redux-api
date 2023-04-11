@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk, isPending, isFulfilled, isRejected } from '@reduxjs/toolkit';
 
 // const url = "https://randomuser.me/api/?results=5";
 const getUsers = createAsyncThunk('users/getUsers',
@@ -21,8 +21,19 @@ const usersSlice = createSlice({
     error: null,
   },
   reducers: {},
-  extraReducers: {
-    
+  extraReducers: (builder) => {
+    builder
+    .addCase(getUsers.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(getUsers.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.users = action.payload;
+      state.error = null;
+    })
+    .addCase(getUsers.rejected, (state, action) => {
+      state.error = action.payload;
+    })
   }
 });
 
