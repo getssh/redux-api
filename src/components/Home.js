@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import './Home.css';
 import {useSelector, useDispatch} from 'react-redux';
+import { getUsers } from '../redux/users/userSlice';
 
-
-const Home = (props) => {
+const Home = () => {
   const {users, isLoading, error} = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUsers()).then((result) => console.log(result));
+  }, [dispatch])
+  console.log(users);
   return (
     <div>
       {
@@ -21,7 +27,7 @@ const Home = (props) => {
             users.map((user, index) => {
               return (
                 <li key={index}>
-                  {user.firstName} {user.lastName}
+                  {`${user.name.first} ${user.name.last}`}
                 </li>
               )
             })
