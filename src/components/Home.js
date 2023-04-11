@@ -20,7 +20,7 @@ const Home = (props) => {
           {
             users.map((user, index) => {
               return (
-                <li>
+                <li key={index}>
                   {user.firstName} {user.lastName}
                 </li>
               )
