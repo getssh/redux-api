@@ -20,6 +20,7 @@ const usersSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {},
   extraReducers: {
     
   }
